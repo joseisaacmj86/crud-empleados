@@ -74,20 +74,13 @@ class Employee extends CI_Model {
      /**
      * Actualizar un empleado por su ID
      */
-    // public function update_employee($id, $data) {
-    //     // if (empty($data)) {
-    //     //     return false; // Evita ejecutar la consulta si no hay datos
-    //     // }
-    //     $this->db->where('employee_id', $id);
-    //     return $this->db->update('employees', $data);
-    // }
     public function update_employee($id, $data) {
         if (empty($data) || !is_array($data)) {
-            return false; // Evita ejecutar la consulta si no hay datos válidos
+            return false;
         }
     
         $this->db->where('employee_id', $id);
-        $this->db->set($data); // Usa set() para asegurarse de que los datos se asignen correctamente
+        $this->db->set($data);
         return $this->db->update('employees');
     }
     

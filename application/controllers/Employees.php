@@ -89,7 +89,6 @@ class Employees extends MY_Controller {
         $this->check_permission();
         $data = json_decode(file_get_contents("php://input"), true);
     
-        // Si la contraseña está vacía, no la actualizamos
         if (empty($data['password'])) {
             unset($data['password']);
         } else {
@@ -109,38 +108,5 @@ class Employees extends MY_Controller {
         echo json_encode(['success' => $success]);
     }
     
-    /**
-     * Mostrar formulario de edición de un empleado
-     */
-    // public function edit($id) {
-    //     $data['employee'] = $this->Employee->get_employee_by_id($id);
-    //     $this->load->view('employees/edit', $data);
-    // }
-
-    /**
-     * Actualizar un empleado en la base de datos
-     */
-    // public function update($id) {
-    //     $data = array(
-    //         'employee_name' => $this->input->post('employee_name'),
-    //         'last_name' => $this->input->post('last_name'),
-    //         'email' => $this->input->post('email'),
-    //         'birthdate' => $this->input->post('birthdate'),
-    //         'department_id' => $this->input->post('department_id'),
-    //         'hiring_date' => $this->input->post('hiring_date'),
-    //         'role_id' => $this->input->post('role_id')
-    //     );
-
-    //     $this->Employee->update_employee($id, $data);
-    //     redirect('employees');
-    // }
-
-    /**
-     * Eliminar un empleado
-     */
-    // public function delete($id) {
-    //     $this->Employee->delete_employee($id);
-    //     redirect('employees');
-    // }
 
 }
